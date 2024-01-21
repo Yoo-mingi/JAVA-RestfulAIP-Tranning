@@ -1,0 +1,34 @@
+server:
+  port: 8088
+
+logging:
+  level:
+    org.springframework: debug
+
+spring:
+  message:
+    basename: messages
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+    generate-ddl: true
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+#  security:
+#    user:
+#      name: username
+#      password: passw0rd
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        #include: {"beans","health"}
